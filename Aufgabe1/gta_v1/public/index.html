@@ -12,15 +12,21 @@
 </head>
 
 <body>
+    <!-- Header -->
     <header class="header">
         <img src="./images/location.png" class="header__image" alt="an image of a map and location">
         <h1 class="header__title">GeoTagApp</h1>
         <nav class="header__navigation">
-            <a href="#">About</a> | <a href="#">Help</a> | <a href="/">Home</a>
+            <a href="#">About</a> | 
+            <a href="#">Help</a> | 
+            <a href="/">Home</a>
         </nav>
     </header>
 
+    <!-- Main --> 
     <main class="main">
+
+        <!-- Tagging Section -->
         <section class="main__tagging tagging">
             <h2>Tagging</h2>
 
@@ -28,12 +34,26 @@
             <form id="tag-form" action="/tagging" method="post">
 
                 <!-- ... your code here ... -->
+                <label for="latitude">Latitude:</label>
+                <input type="number" id="latitude" name="latitude" step="any" required>
+
+                <label for="longitude">Longitude:</label>
+                <input type="number" id="longitude" name="longitude" step="any" required>
+
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="hashtag">Hashtag:</label>
+                <input type="text" id="hashtag" name="hashtag" required>
+
+                <button type="submit">Create GeoTag</button>
 
             </form>
             <!-- ############### VS1Lab 1a Form 1 End -->
 
         </section>
-
+        
+        <!-- Discovery Section -->
         <section class="main__discovery discovery">
             <h2 class="discovery__title">Discovery</h2>
 
@@ -41,16 +61,48 @@
             <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post">
 
                 <!-- ... your code here ... -->
+                <label for="searchterm">Searchterm:</label>
+                <input type="text" id="searchterm" name="searchterm">
+
+                <!-- Versteckte Koordinaten -->
+                <input type="hidden" id="discoveryLatitude" name="latitude" value="">
+                <input type="hidden" id="discoveryLongitude" name="longitude" value="">
+                <button type="submit">Search</button>
 
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
 
             <div class="discovery__wrapper">
+
+                <!-- Tabelle mit GeoTags -->
                 <div class="discovery__taglist">
-                    <ul class="discovery__results" id="discoveryResults">
-                        <li>Castle (49.01379, 8.404435) #sight</li>
-                        <li>IWI (49.01379, 8.390071) #edu</li>
-                    </ul>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Latitude</th>
+                                <th>Longitude</th>
+                                <th>Hashtag</th>
+                            </tr>
+                        </thead>
+                        <tbody class="discovery__results" id="discoveryResults">
+                            
+                            <tr>    
+                                <td>Castle</td>
+                                <td>49.01379</td>
+                                <td>8.404435</td>
+                                <td>#sight</td>
+                            </tr>
+
+                            <tr>
+                                <td>IWI</td>
+                                <td>49.01379</td>
+                                <td>8.390071</td>
+                                <td>#edu</td>
+                            </tr>
+                        </tbody>    
+                    </table>
+                
                 </div>
 
                 <div id="map" class="discovery__map">
