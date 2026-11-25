@@ -377,4 +377,8 @@ img {
   .discovery__search input[type="text"] {
     width: 100%;
   }
+
+  #map { 
+   height: 500px;
+ }
 }
